@@ -1,4 +1,4 @@
-![plot](../assets/fanart.jpg)
+![plot](./assets/fanart.jpg)
 
 # Avatar generator with generative deep learning (GAN)  
 
