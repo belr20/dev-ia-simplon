@@ -11,7 +11,7 @@ En tant qu'expert en données et étant assez économe, vous voulez en avoir pou
 
 ## Ressource(s)  
 
-* https://drive.google.com/file/d/1qYQ36m451bWwxhSEuqCFZz410fKdGsAb/view  
+* [Détail du projet Programmer votre IA pour acheter votre voiture](https://drive.google.com/file/d/1qYQ36m451bWwxhSEuqCFZz410fKdGsAb/view)  
 
 ## Contexte du projet  
 
