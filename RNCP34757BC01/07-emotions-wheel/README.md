@@ -63,7 +63,8 @@ Sur cette page de dashboard pourra se trouver par exemple :
 * Graphique permettant de visualiser les mots les plus représentatifs associés à chaque émotions  
 
 Héberger le dashboard sur le cloud de visualisation de données Héroku :  
-* https://www.heroku.com/  
+
+# [MY Emotions Wheel @ Heroku](https://nameless-coast-30066.herokuapp.com/)  
 
 ## Bonus  
 
@@ -91,5 +92,4 @@ Un dashboard Dash permettra de visualiser et de comparer les performances issues
 
 ***Attention***  
 Votre notebook ne doit contenir que du code et/ou markdown pertinent !  
-Toutes les cellules doivent s'exécuter, les graphiques doivent être pertinents !!!
-
+Toutes les cellules doivent s'exécuter, les graphiques doivent être pertinents !!!  

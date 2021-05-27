@@ -4,5 +4,4 @@
 
 Développer la gestion des données analytiques d’un projet d'application.  
 
-* https://www.francecompetences.fr/recherche/rncp/34757/  
-
+* [FRANCE Compétences RNCP34757](https://www.francecompetences.fr/recherche/rncp/34757/)  

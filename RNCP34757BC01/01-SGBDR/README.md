@@ -8,9 +8,7 @@ Découverte des Systèmes de Gestion de Base de Données Relationnelle au traver
 
 ## Ressource(s)  
 
-Document décrivant le brief :  
-
-* https://docs.google.com/document/d/1zkOrlAD9x4Pq4ZCuP-cmYQSbLyGa1ISTe49b15A6xRI/edit  
+* [Document décrivant le brief](https://docs.google.com/document/d/1zkOrlAD9x4Pq4ZCuP-cmYQSbLyGa1ISTe49b15A6xRI/edit)  
 
 ## Contexte du projet  
 

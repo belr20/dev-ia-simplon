@@ -9,7 +9,7 @@ Développez votre premier Dashboard complet Dash et partagez-le via Heroku !!!
 
 ## Ressource(s)  
 
-* https://simplonline-v3-prod.s3.eu-west-3.amazonaws.com/media/file/csv/be67fa74-2c34-419c-9249-050394a7eb3e.csv  
+* [timesData.csv](https://simplonline-v3-prod.s3.eu-west-3.amazonaws.com/media/file/csv/be67fa74-2c34-419c-9249-050394a7eb3e.csv)  
 
 ## Contexte du projet  
 
@@ -63,6 +63,7 @@ Le rendu final devra être envoyé le vendredi 4 décembre à 15h30.
 
 ## Livrables  
 
-Un rendu individuel se fera sous la forme d'un projet constitué de fichiers .py que vous partagerez via git sur github.  
+Un rendu individuel se fera sous la forme d'un projet constitué de fichiers .py que vous partagerez via Git sur GitHub.  
 Vous devrez également communiquer votre lien HTTPS Heroku permettant l'accès à la visualisation de votre Dashboard.  
 
+***POUR VISUALISER LE DASHBOARD => EXECUTEZ `python index.py`***  

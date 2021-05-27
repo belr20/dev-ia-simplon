@@ -10,9 +10,9 @@ La régression logistique consiste à prédire des variables binaires et non à 
 
 ## Ressource(s)  
 
-* https://simplonline-v3-prod.s3.eu-west-3.amazonaws.com/media/file/csv/fcfb50bc-9fcf-4fab-8d9d-0873de52bdbd.csv  
-* https://docs.google.com/document/d/1zoo1jEZe-xir7uBHVqTT3V11Ykbp8_VJJxChVzn35oA/edit?usp=sharing  
-* https://docs.google.com/document/d/1Rc66lZp1nkScf9P-4sdcz2rsB9z_pVuHPh3siR9cVXw/edit?usp=sharing  
+* [Données CSV](https://simplonline-v3-prod.s3.eu-west-3.amazonaws.com/media/file/csv/fcfb50bc-9fcf-4fab-8d9d-0873de52bdbd.csv)  
+* [Descriptif Brief Regression Logistique](https://docs.google.com/document/d/1zoo1jEZe-xir7uBHVqTT3V11Ykbp8_VJJxChVzn35oA/edit?usp=sharing)  
+* [Tutoriel](https://docs.google.com/document/d/1Rc66lZp1nkScf9P-4sdcz2rsB9z_pVuHPh3siR9cVXw/edit?usp=sharing)  
 
 ## Contexte du projet  
 
@@ -31,4 +31,3 @@ Le code devra être poussé sous github au plus tard Jeudi 19 à 17h.
 
 Le rendu se fera sous la forme d'un notebook.  
 Un rendu individuel est attendu.  
-

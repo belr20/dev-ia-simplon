@@ -2,5 +2,4 @@
 
 # Formation Dev IA @ Simplon.co Marseille  
 
-* https://www.francecompetences.fr/recherche/rncp/34757/  
-
+* [FRANCE Compétences RNCP34757](https://www.francecompetences.fr/recherche/rncp/34757/)  
