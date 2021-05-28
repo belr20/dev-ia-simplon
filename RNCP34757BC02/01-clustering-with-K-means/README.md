@@ -46,6 +46,6 @@ Qualité/structure du code
 
 ## Livrables  
 
-* Git  
-* Notebook  
+* [Git](https://github.com/Olivier-Prince/dev-ia-simplon/tree/main/RNCP34757BC02/01-clustering-with-K-means)  
+* [Notebook](https://github.com/Olivier-Prince/dev-ia-simplon/tree/main/RNCP34757BC02/01-clustering-with-K-means/notebooks)  
 

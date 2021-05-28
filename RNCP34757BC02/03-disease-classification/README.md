@@ -10,13 +10,13 @@ L’incidence augmente ensuite régulièrement jusqu’à 65 ans.
 
 ## Ressource(s)  
 
-* https://mrmint.fr/introduction-k-nearest-neighbors  
-* https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm  
-* https://www.datacamp.com/community/tutorials/k-nearest-neighbor-classification-scikit-learn  
-* http://dataaspirant.com/2016/12/23/k-nearest-neighbor-classifier-intro/  
-* https://stackabuse.com/k-nearest-neighbors-algorithm-in-python-and-scikit-learn/  
-* https://fr.wikipedia.org/wiki/M%C3%A9thode_des_k_plus_proches_voisins#:~:text=En%20reconnaissance%20de%20forme%2C%20l,la%20classification%20et%20la%20r%C3%A9gression.&text=en%20r%C3%A9gression%20k%2DNN%2C%20le,des%20k%20plus%20proches%20voisins.  
-* https://simplonline-v3-prod.s3.eu-west-3.amazonaws.com/media/file/csv/4c343ce6-966b-4ba5-a4e9-16bdbd57c6b1.csv  
+* [KNN](https://mrmint.fr/introduction-k-nearest-neighbors)  
+* [wiki EN NN](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm)  
+* [datacamp](https://www.datacamp.com/community/tutorials/k-nearest-neighbor-classification-scikit-learn)  
+* [dataspirant](http://dataaspirant.com/2016/12/23/k-nearest-neighbor-classifier-intro/)  
+* [stackabuse](https://stackabuse.com/k-nearest-neighbors-algorithm-in-python-and-scikit-learn/)  
+* [wiki FR KNN](https://fr.wikipedia.org/wiki/M%C3%A9thode_des_k_plus_proches_voisins#:~:text=En%20reconnaissance%20de%20forme%2C%20l,la%20classification%20et%20la%20r%C3%A9gression.&text=en%20r%C3%A9gression%20k%2DNN%2C%20le,des%20k%20plus%20proches%20voisins.)  
+* [DATA to download](https://simplonline-v3-prod.s3.eu-west-3.amazonaws.com/media/file/csv/4c343ce6-966b-4ba5-a4e9-16bdbd57c6b1.csv)  
 
 ## Contexte du projet  
 
@@ -56,7 +56,7 @@ Le classificateur kNN ou k-Nearest Neighbours est un algorithme d'apprentissage 
 Le but de ce brief est de mettre en place un classificateur k Nearest Neighbours pour classer les patients souffrant de cancer du sein.  
 
 Ce document décrit les étapes à réaliser pour mettre en oeuvre un KNN et évaluer les performances de ce dernier :
-* https://docs.google.com/document/d/1CwwMb0IfgWhOcWYvIjsKBvd0P0I80XsSOoKEL6zTm_I/edit?usp=sharing  
+* [GUIDE_PAS_A_PAS](https://docs.google.com/document/d/1CwwMb0IfgWhOcWYvIjsKBvd0P0I80XsSOoKEL6zTm_I/edit?usp=sharing)  
 
 ## Modalités pédagogiques  
 
@@ -71,5 +71,4 @@ Le projet doit être soumis au plus tard le lundi 18 à 17h30.
 ## Livrables  
 
 Un rendu individuel doit se faire sous la forme d'un notebook jupyter que vous déposerez sur Github.  
-Le lien github sera partagé sur Simplonline.  
-
+Le [lien github](https://github.com/Olivier-Prince/dev-ia-simplon/tree/main/RNCP34757BC02/03-disease-classification) sera partagé sur [Simplonline](https://simplonline.co/).  

@@ -1,6 +1,6 @@
 ![plot](./assets/fanart.jpg)
 
-# AI Developer in wonderland ! "Late, always late !!!"  
+# « AI Developer in wonderland ! Late !! Always late !!! » ;-)  
 
 Anne-Laure MEALIER 06.01.2021  
 
@@ -11,7 +11,7 @@ Courez, sentez l’air sur votre visage … l’algorithme se déroule sous vos 
 
 ## Ressource(s)  
 
-* https://fr.wikipedia.org/wiki/Mod%C3%A9lisation_math%C3%A9matique_de_labyrinthe  
+* [Modélisation mathématique](https://fr.wikipedia.org/wiki/Mod%C3%A9lisation_math%C3%A9matique_de_labyrinthe)  
 
 ## Contexte du projet  
 
@@ -47,7 +47,7 @@ Mais s’il tombe sur un mur, il choisira d’aller devant.
 Et s’il tombe encore sur un mur, il ira à gauche.  
 Enfin, s’il tombe sur un cul-de-sac, il fera demi-tour.  
 
-« Dans le labyrinthe, tu ne te perds pas... tu te retrouves »  
+**« Dans le labyrinthe, tu ne te perds pas... tu te retrouves »**  
 
 ## Modalités pédagogiques  
 
@@ -70,4 +70,3 @@ L'implémentation de tests unitaires est un plus.
 Créer une application permettant de générer de manière aléatoire un labyrinthe.  
 L’utilisateur pourra décider de la taille du labyrinthe généré, par exemple 10x10 ou 50x100 ...  
 Et permettant également de résoudre le labyrinthe !  
-

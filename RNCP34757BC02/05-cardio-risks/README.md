@@ -75,9 +75,8 @@ Que pouvez-vous conclure ?
 
 ## Modalités d'évaluation  
 
-* Rendu individuel sur Simplonline  
+* Rendu individuel sur [Simplonline](https://simplonline.co)  
 
 ## Livrables  
 
-Notebook Jupyter hébergé sur Github avec le lien accessible sur Simplonline  
-
+[Notebook Jupyter hébergé sur Github](https://github.com/Olivier-Prince/dev-ia-simplon/blob/main/RNCP34757BC02/05-cardio-risks/cardio-risks.ipynb) avec le lien accessible sur [Simplonline](https://simplonline.co)  

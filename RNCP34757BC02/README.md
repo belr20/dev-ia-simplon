@@ -4,5 +4,4 @@
 
 Développer un programme d'Intelligence Artificielle  
 
-* https://www.francecompetences.fr/recherche/rncp/34757/  
-
+* [FRANCE Compétences RNCP34757](https://www.francecompetences.fr/recherche/rncp/34757/)  
