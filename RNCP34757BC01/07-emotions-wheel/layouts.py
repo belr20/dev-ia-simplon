@@ -1,7 +1,6 @@
-import dash
-import dash_table
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import dash_table
+from dash import dcc
+from dash import html
 
 import pandas as pd
 
@@ -26,7 +25,6 @@ layoutMain = html.Div([
     html.Br(),
     dcc.Link('Classifiers', href='/app2'),
 ])
-
 
 layout1 = html.Div([
     html.H1(

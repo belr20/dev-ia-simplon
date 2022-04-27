@@ -1,5 +1,5 @@
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import dcc
+from dash import html
 from dash.dependencies import Input, Output
 
 from app import app
@@ -26,4 +26,4 @@ def display_page(pathname):
 
 
 if __name__ == '__main__':
-    app.run_server(host='127.0.0.1', port='8080', debug=True)
+    app.run_server(host='127.0.0.1', port='8383', debug=True)

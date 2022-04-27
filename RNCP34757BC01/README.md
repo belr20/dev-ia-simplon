@@ -1,4 +1,4 @@
-![plot](../assets/fanart.png)
+![plot](../assets/logo-simplon.png)
 
 # RNCP34757BC01  
 

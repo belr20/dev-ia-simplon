@@ -1,4 +1,4 @@
-![plot](./assets/fanart.png)
+![plot](./assets/logo-simplon.png)
 
 # Formation Dev IA @ Simplon.co Marseille  
 
