@@ -1,4 +1,4 @@
-![plot](./assets/fanart.png)
+<img alt="plot" height="500" src="./assets/wheel.png" width="500"/>
 
 # La Roue des Emotions  
 
@@ -9,10 +9,10 @@ Est-il possible d'identifier des émotions dans des phrases narratives issues de
 
 ## Ressource(s)  
 
-* https://www.actuia.com/contribution/victorbigand/tutoriel-tal-pour-les-debutants-classification-de-texte/  
-* https://bbengfort.github.io/tutorials/2016/05/19/text-classification-nltk-sckit-learn.html  
-* https://medium.com/neuronio/from-sentiment-analysis-to-emotion-recognition-a-nlp-story-bcc9d6ff61ae  
-* https://realpython.com/sentiment-analysis-python/#how-classification-works  
+* [Tutoriel TAL pour les débutants : Classification de texte](https://www.actuia.com/contribution/victorbigand/tutoriel-tal-pour-les-debutants-classification-de-texte/)  
+* [Text Classification with NLTK and Scikit-Learn](https://bbengfort.github.io/tutorials/2016/05/19/text-classification-nltk-sckit-learn.html)  
+* [From Sentiment Analysis to Emotion Recognition: A NLP story](https://medium.com/neuronio/from-sentiment-analysis-to-emotion-recognition-a-nlp-story-bcc9d6ff61ae)  
+* [Use Sentiment Analysis With Python to Classify Movie Reviews](https://realpython.com/sentiment-analysis-python/#how-classification-works)  
 
 ## Contexte du projet  
 
@@ -64,7 +64,7 @@ Sur cette page de dashboard pourra se trouver par exemple :
 
 Héberger le dashboard sur le cloud de visualisation de données Héroku :  
 
-# [MY Emotions Wheel @ Heroku](https://nameless-coast-30066.herokuapp.com/)  
+# [TBD](TBD)  
 
 ## Bonus  
 
