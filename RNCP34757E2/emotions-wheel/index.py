@@ -4,7 +4,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 import dash_bootstrap_components as dbc
 
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, State
 
 from app import app
 
@@ -14,28 +14,69 @@ from app import server
 from apps import data, classification, prediction, home
 
 
+SIMPLON_LOGO = "./assets/simplon-logo.png"
 server = app.server
 
-navbar = dbc.Navbar(dbc.Container([
-        html.A(dbc.Row([
-            dbc.Col(html.Img(src='/assets/simplon-logo.png', height='40px')),
-            dbc.Col(dbc.NavbarBrand('Home', className='ml-2')),
-        ], align='center'), href='/home'),
-        dbc.NavbarToggler(id='navbar-toggler2'),
-        dbc.NavItem([dbc.NavLink('Datasets', href='/data')]),
-        dbc.NavItem([dbc.NavLink('Classifiers', href='/classification')]),
-        dbc.NavItem([dbc.NavLink('Prediction', href='/prediction')]),
-        dbc.NavItem([dbc.NavLink(
-            'GitHub Source Code',
-            href='https://github.com/belr20/dev-ia-simplon/tree/main/RNCP34757E2/emotions-wheel')]),
+navbar = dbc.Navbar(
+    dbc.Container(
+        [
+            html.A(
+                dbc.Row(
+                    [
+                        dbc.Col(html.Img(src=SIMPLON_LOGO, height='40px')),
+                        dbc.Col(dbc.NavbarBrand('Home', className='ms-2')),
+                    ],
+                    align='center',
+                    className='g-0',
+                ),
+                href='/home'
+            ),
+            dbc.NavbarToggler(id='navbar-toggler', n_clicks=0),
+            dbc.Col(
+                dbc.Nav(
+                    dbc.Container(dbc.NavItem(dbc.NavLink("DATA", href='/data'))),
+                    navbar=True,
+                ),
+                width="auto",
+            ),
+            dbc.Col(
+                dbc.Nav(
+                    dbc.Container(dbc.NavItem(dbc.NavLink("CLASSIFICATION", href='/classification'))),
+                    navbar=True,
+                ),
+                width="auto",
+            ),
+            dbc.Col(
+                dbc.Nav(
+                    dbc.Container(dbc.NavItem(dbc.NavLink("PREDICTION", href='/prediction'))),
+                    navbar=True,
+                ),
+                width="auto",
+            ),
+            dbc.Col(
+                dbc.Nav(
+                    dbc.Container(dbc.NavItem(dbc.NavLink(
+                        "GitHub Source Code",
+                        href="https://github.com/belr20/dev-ia-simplon/tree/main/RNCP34757E2/emotions-wheel",
+                    ))),
+                    navbar=True,
+                ),
+                width="auto",
+            ),
         ]
     ),
-    color='dark',
     dark=True,
-    className='mb-4'
+    color='primary',
+    className='mb-5'
 )
 
-app.layout = html.Div([dcc.Location(id='url', refresh=False), navbar, html.Div(id='page-content')])
+app.layout = html.Div(
+    [
+        dcc.Location(id='url', refresh=False),
+        navbar,
+        html.Div(id='page-content')
+    ]
+)
 
 
 @app.callback(Output('page-content', 'children'),
