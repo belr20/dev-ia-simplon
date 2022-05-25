@@ -1,0 +1,13 @@
+ta==0.10.1
+tqdm==4.64.0
+keras==2.9.0
+numpy==1.22.3
+pandas==1.4.2
+pymongo==4.1.1
+matplotlib==3.5.2
+tensorflow==2.9.0
+tensorboardx==2.5
+python-decouple==3.6
+mplfinance==0.12.9b0
+tensorflow-gpu==2.9.0
+opencv-python==4.5.5.64
