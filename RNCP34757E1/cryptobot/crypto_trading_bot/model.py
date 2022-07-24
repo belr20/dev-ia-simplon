@@ -19,14 +19,17 @@ tf.compat.v1.disable_eager_execution()  # usually using this for fastest perform
 gpus = tf.config.experimental.list_physical_devices('GPU')
 print("=" * 120)
 if len(gpus) > 0:
-    print(f'GPU devices = {gpus}')
+    print("\nDEVICE")
+    print("\ttype\t\t", gpus[0].device_type)
+    print("\tname\t\t", gpus[0].name)
+    print("\tmemory limit\t", gpus[0].memory_limit)
     try:
         tf.config.experimental.set_memory_growth(gpus[0], True)
     except RuntimeError:
         pass
 else:
-    print("NO GPU device")
-print("=" * 120)
+    print("\nNO GPU device")
+print("\n" + "=" * 120 + "\n")
 
 # tf.data.experimental.enable_debug_mode()  # For debuging & development
 # tf.config.run_functions_eagerly(True)  # For debuging & development

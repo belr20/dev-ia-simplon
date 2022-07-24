@@ -4,7 +4,6 @@
 # @Author:      belr
 # @Time:        17/05/2022 21:10
 import os
-import cv2
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -12,7 +11,10 @@ import matplotlib.dates as mpl_dates
 
 from collections import deque
 from datetime import datetime
+# from matplotlib.colors import rgb2hex
 from mplfinance.original_flavor import candlestick_ohlc
+
+import cv2
 
 
 logger = []
@@ -34,6 +36,12 @@ def write_to_file(date, order, filename='{}.txt'.format(datetime.now().strftime(
     file = open("logs/" + filename, 'a+')
     file.write(date + "\n")
     file.close()
+
+
+# def rgb_to_lab(img):
+#     img_rgb = rgb2hex(img)
+#     Lab = cv2.cvtColor(img_rgb, cv2.COLOR_RGB2LAB)
+#     return Lab
 
 
 class TradingGraph:
@@ -244,6 +252,7 @@ class TradingGraph:
 
         # img is rgb, convert to opencv's default bgr
         image = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
+        # image = rgb_to_lab(img)
 
         # display image with OpenCV or any operation you like
         cv2.imshow("Bitcoin Trading Bot", image)

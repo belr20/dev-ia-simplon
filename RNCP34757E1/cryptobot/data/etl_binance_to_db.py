@@ -41,7 +41,7 @@ if platform == "win32":
     # Windows
     uri = "mongodb://%s:%s" % (DB_HOST, DB_PORT)
 else:
-    # linux
+    # Linux
     uri = "mongodb://%s:%s@%s" % (DB_USER, DB_PASSWD, DB_HOST)
 
 
@@ -87,7 +87,7 @@ def doc_in_collection_update(mongo_client, database, collection, dict_list, date
     except Exception as e:
         print("Update FAILED in MongoDB =>", str(e))
 
-    print("=" * 120)
+    print("\n" + "=" * 120 + "\n")
 
 
 async def save_url_to_csv(crypto, path, file_name):
@@ -99,8 +99,8 @@ async def save_url_to_csv(crypto, path, file_name):
     :return:
     """
     url = f"https://www.cryptodatadownload.com/cdd/Binance_{crypto}_1h.csv"
-    print("URL\t\t\t\t", url)
-    print("=" * 120)
+    print("Download from URL\t\t\t\t", url)
+    print("\n" + "=" * 120 + "\n")
     df = pd.read_csv(url, header=1)
     final_path = os.path.join(path, file_name)
     csv_file = df.to_csv(final_path, index=False)
@@ -118,7 +118,7 @@ async def save_csv_to_db(mongo_client, path, csv_file, date_format, collection_n
     :return:
     """
     client_dbs = mongo_client.list_database_names()
-    print("Available DBs in MongoDB server\t", client_dbs)
+    # print("Available DBs in MongoDB server\t", client_dbs)
 
     # Data preprocessing
     dataframe = pd.read_csv(f"{path}{csv_file}")
@@ -164,7 +164,7 @@ def binance_to_db(mongo_client, crypto, path, csv_file):
 
 
 if __name__ == '__main__':
-    print('\nETL Binance script is runing ...\n')
+    print('\nETL Binance script is running ...\n')
 
     try:
         connexion = MongoClient(uri)
@@ -172,7 +172,7 @@ if __name__ == '__main__':
     except Exception as e:
         print("Connexion to MongoDb server FAILED =>", str(e))
 
-    print("=" * 120)
+    print("\n" + "=" * 120 + "\n")
 
     binance_to_db(connexion, CRYPTO, path="./input/", csv_file=f"{CRYPTO}_Binance_hourly.csv")
 
@@ -182,4 +182,4 @@ if __name__ == '__main__':
     except Exception as e:
         print("MongoDB server disconnexion FAILED =>", str(e))
 
-    print("=" * 120)
+    print("\n" + "=" * 120 + "\n")

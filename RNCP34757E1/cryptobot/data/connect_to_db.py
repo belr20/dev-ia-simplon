@@ -7,6 +7,7 @@ import pandas as pd
 
 from pymongo import MongoClient
 
+from crypto_trading_bot.indicators import add_indicators
 from data.etl_binance_to_db import uri, DB_NAME, COLLECTION_NAME
 
 
@@ -18,14 +19,14 @@ def db_connexion(mongo_client, database, collection):
     :param collection:
     :return:
     """
-    mongo_client_dbs = mongo_client.list_database_names()
-    print("Available DBs in Mongo server\t", list(mongo_client_dbs))
+    # mongo_client_dbs = mongo_client.list_database_names()
+    # print("Available DBs in Mongo server\t", list(mongo_client_dbs))
 
     db = mongo_client[database]
     print("Selected DATABASE\t\t", db.name)
 
-    db_collections = db.list_collection_names()
-    print("\nAvailable collections\t\t", list(db_collections))
+    # db_collections = db.list_collection_names()
+    # print("\nAvailable collections\t\t", list(db_collections))
 
     col = db[collection]
     print("Selected COLLECTION\t\t", col.name)
@@ -39,8 +40,7 @@ def db_connexion(mongo_client, database, collection):
     # Reformat date
     df['Date'] = pd.to_datetime(df['Date'], infer_datetime_format=True)
     df = df.sort_values('Date')
-    print("\nDataframe INFO from", col.name, ":\n")
-    print(df.info())
+    df = add_indicators(df)  # Insert indicators to df
     return df
 
 
@@ -51,15 +51,18 @@ if __name__ == '__main__':
         print("Connexion to Mongo server OK :-)")
     except Exception as e:
         print("Connexion to Mongo server FAILED :-( =>", str(e))
-    print('=' * 120)
+    print("\n" + "=" * 120 + "\n")
 
-    db_connexion(connexion, DB_NAME, COLLECTION_NAME)
+    dataframe = db_connexion(connexion, DB_NAME, COLLECTION_NAME)
+    print("\nDataframe INFO from", COLLECTION_NAME.name, ":\n")
+    print(dataframe.info())
+    print("\n" + "=" * 120 + "\n")
 
     try:
         connexion.close()
-        print("MongoDB server disconnexion OK :-)")
+        print("Mongo server disconnexion OK :-)")
     except Exception as e:
-        print("MongoDB server disconnexion FAILED :-( =>", str(e))
+        print("Mongo server disconnexion FAILED :-( =>", str(e))
 
     print("END of CONNECT_TO_DB")
-    print('=' * 120)
+    print("\n" + "=" * 120 + "\n")

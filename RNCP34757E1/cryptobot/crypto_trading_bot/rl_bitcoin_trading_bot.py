@@ -515,19 +515,19 @@ def random_games(env, visualize, test_episodes=50, comment=""):
                 if env.net_worth < env.initial_balance:
                     # Calculate episode count where negative profit through episode
                     no_profit_episodes += 1
-                print("=" * 120)
-                print("Episode {}".format(episode))
+                print("RANDOM Agent TEST Episode {}\n".format(episode))
                 print("\tOrders\t\t\t{}".format(env.episode_orders))
                 print("\tNET WORTH\t\t{:.2f}".format(env.net_worth))
                 print("\tAverage NET WORTH\t{:.2f}".format(average_net_worth / (episode + 1)))
-                print("=" * 120)
+                print("\n" + "-" * 80 + "\n")
                 break
 
-    print("\nRANDOM Agent AVERAGE for {} episodes\n\tNET WORTH = {:.2f}\tOrders = {}\n".format(
+    print("RANDOM Agent AVERAGE for {} TEST episodes\n\tNET WORTH = {:.2f}\tOrders = {}".format(
         test_episodes,
         average_net_worth / test_episodes,
         average_orders / test_episodes,
     ))
+    print("\n" + "=" * 120 + "\n")
 
     # Save test results to test_results.txt file
     with open("logs/test_results.txt", "a+") as results:
@@ -580,12 +580,11 @@ def train_agent(env, agent, visualize=False, train_episodes=50, training_batch_s
         agent.writer.add_scalar('Data/average net_worth', average, episode)
         agent.writer.add_scalar('Data/episode_orders', env.episode_orders, episode)
 
-        print("=" * 120)
-        print("Episode", episode)
-        print("\tOrders = {}".format(env.episode_orders))
+        print("RL Agent TRAIN Episode", episode)
+        print("\n\tOrders = {}".format(env.episode_orders))
         print("\tAverage = {:.2f}".format(average))
         print("\tNET WORTH = {:.2f}".format(env.net_worth))
-        print("=" * 120)
+        print("\n" + "-" * 80 + "\n")
 
         if episode > len(total_average):
 
@@ -634,18 +633,18 @@ def test_agent(env, agent, visualize=True, test_episodes=10, folder="", name="Cr
                     # Calculate episode count where negative profit through episode
                     no_profit_episodes += 1
 
-                print("=" * 120)
-                print("Episode", episode)
-                print("\tOrders\t\t\t{}".format(env.episode_orders))
+                print("RL Agent TEST Episode", episode)
+                print("\n\tOrders\t\t\t{}".format(env.episode_orders))
                 print("\tNET WORTH\t\t{:.2f}".format(env.net_worth))
                 print("\tAverage NET WORTH\t{:.2f}".format(average_net_worth / (episode + 1)))
-                print("=" * 120)
+                print("\n" + "-" * 80 + "\n")
                 break
 
-    print("\nRL Agent results for {} TEST episodes :\n".format(test_episodes))
+    print("RL Agent results for {} TEST episodes :\n".format(test_episodes))
     print("\tNET WORTH\t\t{:.2f}".format(average_net_worth / test_episodes))
     print("\tOrders\t\t\t{:.0f}".format(average_orders / test_episodes))
     print("\tNO PROFIT episodes\t{}".format(no_profit_episodes))
+    print("\n" + "=" * 120 + "\n")
 
     # Save test results to test_results.txt file
     with open("logs/test_results.txt", "a+") as results:
