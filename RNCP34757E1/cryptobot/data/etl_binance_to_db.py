@@ -5,6 +5,7 @@
 # @Time:        18/05/2022 23:09
 import os
 import ssl
+import emoji
 import asyncio
 import datetime
 import pandas as pd
@@ -39,10 +40,13 @@ COLLECTION_NAME = config('COLLECTION_NAME', default='BTCUSDT_BinanceHourly')
 
 if platform == "win32":
     # Windows
-    uri = "mongodb://%s:%s" % (DB_HOST, DB_PORT)
+    # uri = "mongodb://%s:%s" % (DB_HOST, DB_PORT)
+    uri = "mongodb://%s:%s@%s" % (DB_USER, DB_PASSWD, DB_HOST)
 else:
     # Linux
     uri = "mongodb://%s:%s@%s" % (DB_USER, DB_PASSWD, DB_HOST)
+
+# print("\nMongo URI => ", uri)
 
 
 def doc_in_collection_update(mongo_client, database, collection, dict_list, date_format):
@@ -99,7 +103,7 @@ async def save_url_to_csv(crypto, path, file_name):
     :return:
     """
     url = f"https://www.cryptodatadownload.com/cdd/Binance_{crypto}_1h.csv"
-    print("Download from URL\t\t\t\t", url)
+    print("Download from URL\t\t", url)
     print("\n" + "=" * 120 + "\n")
     df = pd.read_csv(url, header=1)
     final_path = os.path.join(path, file_name)
@@ -117,7 +121,7 @@ async def save_csv_to_db(mongo_client, path, csv_file, date_format, collection_n
     :param collection_name:
     :return:
     """
-    client_dbs = mongo_client.list_database_names()
+    # client_dbs = mongo_client.list_database_names()
     # print("Available DBs in MongoDB server\t", client_dbs)
 
     # Data preprocessing
@@ -167,19 +171,22 @@ if __name__ == '__main__':
     print('\nETL Binance script is running ...\n')
 
     try:
-        connexion = MongoClient(uri)
-        print("Connexion to MongoDB server OK :-)")
+        connection = MongoClient(uri)
+        print("connection to Mongo server\t@",
+              connection.HOST, ":", connection.PORT)
+
+        print("\n" + "=" * 120 + "\n")
+
+        binance_to_db(connection, CRYPTO, path="./input/", csv_file=f"{CRYPTO}_Binance_hourly.csv")
+
+        try:
+            connection.close()
+            print("MongoDB server disconnection OK :-)")
+        except Exception as e:
+            print("MongoDB server disconnection FAILED =>", str(e))
+
     except Exception as e:
-        print("Connexion to MongoDb server FAILED =>", str(e))
+        print("connection to MongoDb server FAILED =>", str(e))
 
-    print("\n" + "=" * 120 + "\n")
-
-    binance_to_db(connexion, CRYPTO, path="./input/", csv_file=f"{CRYPTO}_Binance_hourly.csv")
-
-    try:
-        connexion.close()
-        print("MongoDB server disconnexion OK :-)")
-    except Exception as e:
-        print("MongoDB server disconnexion FAILED =>", str(e))
-
+    print(emoji.emojize("\nEnd of ETL Binance script :thumbs_up:"))
     print("\n" + "=" * 120 + "\n")

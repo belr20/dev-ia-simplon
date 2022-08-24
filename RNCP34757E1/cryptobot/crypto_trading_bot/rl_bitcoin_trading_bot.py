@@ -11,8 +11,9 @@ import numpy as np
 from collections import deque
 from datetime import datetime
 
+# from keras.optimizers import Adam
 from tensorboardX import SummaryWriter
-from keras.optimizers import Adam
+from tensorflow.keras.optimizers import Adam
 
 from crypto_trading_bot.model import SharedModel
 # from crypto_trading_bot.utils import TradingGraph, write_to_file
@@ -515,7 +516,7 @@ def random_games(env, visualize, test_episodes=50, comment=""):
                 if env.net_worth < env.initial_balance:
                     # Calculate episode count where negative profit through episode
                     no_profit_episodes += 1
-                print("RANDOM Agent TEST Episode {}\n".format(episode))
+                print("\nRANDOM Agent TEST Episode {}\n".format(episode))
                 print("\tOrders\t\t\t{}".format(env.episode_orders))
                 print("\tNET WORTH\t\t{:.2f}".format(env.net_worth))
                 print("\tAverage NET WORTH\t{:.2f}".format(average_net_worth / (episode + 1)))
@@ -580,7 +581,7 @@ def train_agent(env, agent, visualize=False, train_episodes=50, training_batch_s
         agent.writer.add_scalar('Data/average net_worth', average, episode)
         agent.writer.add_scalar('Data/episode_orders', env.episode_orders, episode)
 
-        print("RL Agent TRAIN Episode", episode)
+        print("\nRL Agent TRAIN Episode", episode)
         print("\n\tOrders = {}".format(env.episode_orders))
         print("\tAverage = {:.2f}".format(average))
         print("\tNET WORTH = {:.2f}".format(env.net_worth))
@@ -633,7 +634,7 @@ def test_agent(env, agent, visualize=True, test_episodes=10, folder="", name="Cr
                     # Calculate episode count where negative profit through episode
                     no_profit_episodes += 1
 
-                print("RL Agent TEST Episode", episode)
+                print("\nRL Agent TEST Episode", episode)
                 print("\n\tOrders\t\t\t{}".format(env.episode_orders))
                 print("\tNET WORTH\t\t{:.2f}".format(env.net_worth))
                 print("\tAverage NET WORTH\t{:.2f}".format(average_net_worth / (episode + 1)))

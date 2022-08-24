@@ -1,5 +1,5 @@
 # [Crypto Trading Bot]()
-***by [BelR](https://github.com/belr20) with*** [![Python 3.10](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/downloads/release/python-3104/)
+***by [BelR](https://github.com/belr20) with*** [![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-3913/)
 
 ![Bot](./assets/bot.png)
 
@@ -18,7 +18,7 @@ Many thanks to [@pythonlessons](https://github.com/pythonlessons) for his [clear
 
 ## Bitcoin OHLCV historical data fetching
   
-Simply run `./deploy.sh` or `.\deploy.bat` depending on your OS Linux / Windows OR follow next steps :  
+After creating & activating your environment with [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#managing-environments) or [pip](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#installing-packages-using-pip-and-virtual-environments), you can run `./deploy.sh` or `.\deploy.bat` depending on your OS Linux / Windows and/or follow next steps.  
   
 ### OHLCV database initialization
 
@@ -54,19 +54,19 @@ For HELP you can run `python main.py -h`
 
 * [ ] Add option `--visualize` to CLI command for rendering data
 
-```
+```python
 python main.py --visualize dense-agent
 ```
 
 * [ ] Add option `--show-reward` to CLI command for rendering rewards
 
-```
-python main.py --visualize --show-reward cnn-agent
+```python
+python main.py --visualize --show-reward random-agent
 ```
 
 * [ ] Add option `--show-indicators` to CLI command for rendering indicators : [SMA](https://technical-analysis-library-in-python.readthedocs.io/en/latest/ta.html#ta.trend.SMAIndicator), [BB](https://technical-analysis-library-in-python.readthedocs.io/en/latest/ta.html#ta.volatility.BollingerBands), [PSAR](https://technical-analysis-library-in-python.readthedocs.io/en/latest/ta.html#ta.trend.PSARIndicator), [MACD](https://technical-analysis-library-in-python.readthedocs.io/en/latest/ta.html#ta.trend.MACD), [RSI](https://technical-analysis-library-in-python.readthedocs.io/en/latest/ta.html#ta.momentum.rsi)
 
-```
+```python
 python main.py --visualize --show-reward --show-indicators lstm-agent
 ```
 
