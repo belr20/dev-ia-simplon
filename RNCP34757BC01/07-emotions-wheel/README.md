@@ -1,6 +1,6 @@
 ![plot](./assets/fanart.png)
 
-# La Roue des Emotions  
+# La Roue des Emotions [![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-3813/)
 
 Anne-Laure MEALIER 08.12.2020  
 
@@ -64,7 +64,7 @@ Sur cette page de dashboard pourra se trouver par exemple :
 
 Héberger le dashboard sur le cloud de visualisation de données Héroku :  
 
-# [MY Emotions Wheel @ Heroku](https://nameless-coast-30066.herokuapp.com/)  
+# [My Emotions Wheel @ Heroku (from RNCP34757E2)](https://emotions-wheel-by-belr20.herokuapp.com)  
 
 ## Bonus  
 
