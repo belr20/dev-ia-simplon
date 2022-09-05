@@ -1,7 +1,7 @@
 from app import app
 
 from dash.dependencies import Input, Output
-from dash import dash_table
+import dash_table
 
 import pandas as pd
 import numpy as np
