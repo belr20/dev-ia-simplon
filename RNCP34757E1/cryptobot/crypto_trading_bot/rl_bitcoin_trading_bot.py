@@ -11,13 +11,16 @@ import numpy as np
 from collections import deque
 from datetime import datetime
 
-# from keras.optimizers import Adam
+# import tensorflow as tf
 from tensorboardX import SummaryWriter
-from tensorflow.keras.optimizers import Adam
+from keras.optimizers import Adam
+# from tensorflow.keras.optimizers import Adam
 
 from crypto_trading_bot.model import SharedModel
 # from crypto_trading_bot.utils import TradingGraph, write_to_file
 from crypto_trading_bot.utils import TradingGraph
+
+# tf.config.experimental.enable_mlir_graph_optimization()
 
 
 class CryptoAgent:
@@ -233,7 +236,7 @@ class CryptoEnv:
     """
     def __init__(self, dataframe, initial_balance=1000, lookback_window_size=50, render_range=100,
                  show_reward=False, show_indicators=False, normalize_value=40000):
-        # Define action space, state size & other custom parameters
+        # Define action space, state size
         self.df = dataframe.dropna().reset_index()
         self.df_total_steps = len(self.df) - 1
         self.initial_balance = initial_balance
@@ -528,7 +531,7 @@ def random_games(env, visualize, test_episodes=50, comment=""):
         average_net_worth / test_episodes,
         average_orders / test_episodes,
     ))
-    print("\n" + "=" * 120 + "\n")
+    print("\n" + "=" * 80 + "\n")
 
     # Save test results to test_results.txt file
     with open("logs/test_results.txt", "a+") as results:
@@ -645,7 +648,7 @@ def test_agent(env, agent, visualize=True, test_episodes=10, folder="", name="Cr
     print("\tNET WORTH\t\t{:.2f}".format(average_net_worth / test_episodes))
     print("\tOrders\t\t\t{:.0f}".format(average_orders / test_episodes))
     print("\tNO PROFIT episodes\t{}".format(no_profit_episodes))
-    print("\n" + "=" * 120 + "\n")
+    print("\n" + "=" * 80 + "\n")
 
     # Save test results to test_results.txt file
     with open("logs/test_results.txt", "a+") as results:

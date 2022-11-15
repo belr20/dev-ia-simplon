@@ -51,7 +51,7 @@ if __name__ == '__main__':
         dataframe = db_connection(connection, DB_NAME, COLLECTION_NAME)
         print("\nDataframe INFO from", COLLECTION_NAME.name, ":\n")
         print(dataframe.info())
-        print("\n" + "=" * 120 + "\n")
+        print("\n" + "=" * 80 + "\n")
 
         try:
             connection.close()
@@ -63,4 +63,4 @@ if __name__ == '__main__':
         print("connection to Mongo server FAILED =>", str(e))
 
     print(emoji.emojize("\nEnd of CONNECT_TO_DB :thumbs_up:"))
-    print("\n" + "=" * 120 + "\n")
+    print("\n" + "=" * 80 + "\n")

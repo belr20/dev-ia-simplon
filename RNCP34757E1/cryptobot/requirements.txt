@@ -1,11 +1,8 @@
 ta
 tqdm
 keras
+emoji
 numpy
-# If CONDA install, uncomment below req
-#opencv
-# If PIP install, uncomment below req
-#opencv-python
 pandas
 pymongo
 mplfinance
@@ -14,3 +11,7 @@ tensorboardx
 python-decouple
 tensorflow>=2.3.1
 tensorflow-gpu>=2.3.1
+# If CONDA uncomment below
+#opencv
+# If PIP uncomment below
+#opencv-python

@@ -91,7 +91,7 @@ def doc_in_collection_update(mongo_client, database, collection, dict_list, date
     except Exception as e:
         print("Update FAILED in MongoDB =>", str(e))
 
-    print("\n" + "=" * 120 + "\n")
+    print("\n" + "=" * 80 + "\n")
 
 
 async def save_url_to_csv(crypto, path, file_name):
@@ -104,7 +104,7 @@ async def save_url_to_csv(crypto, path, file_name):
     """
     url = f"https://www.cryptodatadownload.com/cdd/Binance_{crypto}_1h.csv"
     print("Download from URL\t\t", url)
-    print("\n" + "=" * 120 + "\n")
+    print("\n" + "=" * 80 + "\n")
     df = pd.read_csv(url, header=1)
     final_path = os.path.join(path, file_name)
     csv_file = df.to_csv(final_path, index=False)
@@ -175,7 +175,7 @@ if __name__ == '__main__':
         print("connection to Mongo server\t@",
               connection.HOST, ":", connection.PORT)
 
-        print("\n" + "=" * 120 + "\n")
+        print("\n" + "=" * 80 + "\n")
 
         binance_to_db(connection, CRYPTO, path="./input/", csv_file=f"{CRYPTO}_Binance_hourly.csv")
 
@@ -189,4 +189,4 @@ if __name__ == '__main__':
         print("connection to MongoDb server FAILED =>", str(e))
 
     print(emoji.emojize("\nEnd of ETL Binance script :thumbs_up:"))
-    print("\n" + "=" * 120 + "\n")
+    print("\n" + "=" * 80 + "\n")

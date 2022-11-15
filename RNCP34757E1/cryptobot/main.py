@@ -3,66 +3,101 @@
 # @Filename:    main.py
 # @Author:      belr
 # @Time:        18/05/2022 22:40
-from crypto_trading_bot.rl_bitcoin_trading_bot import CryptoEnv, CryptoAgent, random_games, train_agent, test_agent
-from data.etl_binance_to_db import binance_to_db, uri, CRYPTO, DB_NAME, COLLECTION_NAME
-from crypto_trading_bot.indicators import add_indicators
-from data.connect_to_db import db_connection
-from tensorflow.keras.optimizers import Adam
-# from keras.optimizers import Adam
-from pymongo import MongoClient
-# import pandas as pd
-import emoji
 import argparse
 from argparse import ArgumentParser
-
-
 # Argument parser configuration
 config_parser = ArgumentParser(epilog="Have FUN !", add_help=False)
 config_parser.add_argument(
-    "--visualize", action="store_true", help='Render data in OHLCV graph')
-config_parser.add_argument("--show-indicators", action="store_true",
-                           help='Render technical indicators for analysis')
+    "--visualize",
+    action="store_true",
+    help='Render data in OHLCV graph'
+)
 config_parser.add_argument(
-    "--show-reward", action="store_true", help='Render RL agent rewards')
+    "--show-indicators",
+    action="store_true",
+    help='Render technical indicators for analysis'
+)
 config_parser.add_argument(
-    "--train", action="store_true", help='Train RL agent')
-# config_parser.add_argument("-f", "--from-config", help="Specify config file", metavar="FILE")
-# args, _ = config_parser.parse_known_args()
-
+    "--show-reward",
+    action="store_true",
+    help='Render RL agent rewards'
+)
+config_parser.add_argument(
+    "--train",
+    action="store_true",
+    help='Train RL agent'
+)
 formatter = argparse.ArgumentDefaultsHelpFormatter
-parser = argparse.ArgumentParser(formatter_class=formatter, parents=[
-                                 config_parser], description=__doc__)
-subparsers = parser.add_subparsers(dest="command", help='Command')
+parser = argparse.ArgumentParser(
+    formatter_class=formatter,
+    parents=[config_parser],
+    description=__doc__
+)
+subparsers = parser.add_subparsers(
+    dest="command",
+    help='Command'
+)
 
 fetch_data = subparsers.add_parser(
-    "fetch-data", help='Fetch Bitcoin OHLCV data from Binance marketplace')
+    "fetch-data",
+    help='Fetch Bitcoin OHLCV data from Binance marketplace'
+)
 random_agent = subparsers.add_parser(
-    "random-agent", help='Test random agent with initial balance = 1000 $')
+    "random-agent",
+    help='Test random agent with initial balance = 1000 $'
+)
 dense_agent = subparsers.add_parser(
-    "dense-agent", help='Test dense agent with initial balance = 1000 $')
+    "dense-agent",
+    help='Test dense agent with initial balance = 1000 $'
+)
 cnn_agent = subparsers.add_parser(
-    "cnn-agent", help='Test CNN agent with initial balance = 1000 $')
+    "cnn-agent",
+    help='Test CNN agent with initial balance = 1000 $'
+)
 lstm_agent = subparsers.add_parser(
-    "lstm-agent", help='Test LSTM agent with initial balance = 1000 $')
-
+    "lstm-agent",
+    help='Test LSTM agent with initial balance = 1000 $'
+)
 args = parser.parse_args()
+
+from data.etl_binance_to_db import (COLLECTION_NAME, CRYPTO, DB_NAME,
+                                    binance_to_db, uri)
+from data.connect_to_db import db_connection
+from crypto_trading_bot.rl_bitcoin_trading_bot import (CryptoAgent, CryptoEnv,
+                                                       random_games,
+                                                       test_agent, train_agent)
+from crypto_trading_bot.indicators import add_indicators
+# from tensorflow.keras.optimizers import Adam
+from keras.optimizers import Adam
+from pymongo import MongoClient
+
+# import pandas as pd
+import emoji
+import time
 
 
 if __name__ == '__main__':
+    start_time = time.time()
     print('MAIN is running through following namespace :\n')
     for key, value in vars(args).items():
         print(f'\t{str.upper(key)}\n\t\t\t\t{value}')
-    print("\n" + "=" * 120 + "\n")
+
+    print("\n" + "=" * 80 + "\n")
 
     try:
         connection = MongoClient(uri)
-        print("Connection to Mongo server\t@",
-              connection.HOST, ":", connection.PORT)
+        print(
+            f"Connection to Mongo server\t@{connection.HOST}:{connection.PORT}"
+        )
 
         try:
             if args.command == 'fetch-data':
-                binance_to_db(connection, CRYPTO, path='./data/input/',
-                            csv_file=f"{CRYPTO}_Binance_hourly.csv")
+                binance_to_db(
+                    connection,
+                    CRYPTO,
+                    path='./data/input/',
+                    csv_file=f"{CRYPTO}_Binance_hourly.csv"
+                )
             else:
                 # df = pd.read_csv('./data/input/pricedata.csv')
                 # df = df.sort_values('Date')
@@ -70,7 +105,7 @@ if __name__ == '__main__':
                 df = add_indicators(df)  # Insert indicators to df
                 print("Dataframe INFO :\n")
                 print(df.info())
-                print("\n" + "=" * 120 + "\n")
+                print("\n" + "=" * 80 + "\n")
 
                 lookback_window_size = 50
                 test_window = 720  # Last 30 days for TEST dataset
@@ -90,9 +125,16 @@ if __name__ == '__main__':
 
                     if args.train:
                         train_env = CryptoEnv(
-                            train_df, lookback_window_size=lookback_window_size)
-                        train_agent(train_env, agent, visualize=False,
-                                    train_episodes=50000, training_batch_size=500)
+                            train_df,
+                            lookback_window_size=lookback_window_size
+                        )
+                        train_agent(
+                            train_env,
+                            agent,
+                            visualize=False,
+                            train_episodes=50000,
+                            training_batch_size=500
+                        )
                     else:
                         test_env = CryptoEnv(
                             test_df,
@@ -109,7 +151,11 @@ if __name__ == '__main__':
                             name="1984.93_Crypto_Trader",
                             comment="",
                         )
-                        random_games(test_env, visualize=False, test_episodes=1)
+                        random_games(
+                            test_env,
+                            visualize=False,
+                            test_episodes=1
+                        )
 
                 if args.command == 'cnn-agent':
                     # CNN network
@@ -123,9 +169,16 @@ if __name__ == '__main__':
                     )
                     if args.train:
                         train_env = CryptoEnv(
-                            train_df, lookback_window_size=lookback_window_size)
-                        train_agent(train_env, agent, visualize=False,
-                                    train_episodes=50000, training_batch_size=500)
+                            train_df,
+                            lookback_window_size=lookback_window_size
+                        )
+                        train_agent(
+                            train_env,
+                            agent,
+                            visualize=False,
+                            train_episodes=50000,
+                            training_batch_size=500
+                        )
                     else:
                         test_env = CryptoEnv(
                             test_df,
@@ -142,7 +195,11 @@ if __name__ == '__main__':
                             name="2961.57_Crypto_Trader",
                             comment="",
                         )
-                        random_games(test_env, visualize=False, test_episodes=1)
+                        random_games(
+                            test_env,
+                            visualize=False,
+                            test_episodes=1
+                        )
 
                 if args.command == 'lstm-agent':
                     # LSTM network
@@ -156,9 +213,16 @@ if __name__ == '__main__':
                     )
                     if args.train:
                         train_env = CryptoEnv(
-                            train_df, lookback_window_size=lookback_window_size)
-                        train_agent(train_env, agent, visualize=False,
-                                    train_episodes=50000, training_batch_size=500)
+                            train_df,
+                            lookback_window_size=lookback_window_size
+                        )
+                        train_agent(
+                            train_env,
+                            agent,
+                            visualize=False,
+                            train_episodes=50000,
+                            training_batch_size=500
+                        )
                     else:
                         test_env = CryptoEnv(
                             test_df,
@@ -175,7 +239,11 @@ if __name__ == '__main__':
                             name="3146.45_Crypto_Trader",
                             comment="",
                         )
-                        random_games(test_env, visualize=False, test_episodes=1)
+                        random_games(
+                            test_env,
+                            visualize=False,
+                            test_episodes=1
+                        )
 
                 if args.command == 'random-agent':
                     # LSTM network
@@ -189,9 +257,16 @@ if __name__ == '__main__':
                     )
                     if args.train:
                         train_env = CryptoEnv(
-                            train_df, lookback_window_size=lookback_window_size)
-                        train_agent(train_env, agent, visualize=False,
-                                    train_episodes=50000, training_batch_size=500)
+                            train_df,
+                            lookback_window_size=lookback_window_size
+                        )
+                        train_agent(
+                            train_env,
+                            agent,
+                            visualize=False,
+                            train_episodes=50000,
+                            training_batch_size=500
+                        )
                     else:
                         test_env = CryptoEnv(
                             test_df,
@@ -200,20 +275,26 @@ if __name__ == '__main__':
                             show_indicators=args.show_indicators,
                         )
                         random_games(
-                            test_env, visualize=args.visualize, test_episodes=1)
+                            test_env,
+                            visualize=args.visualize,
+                            test_episodes=1
+                        )
 
         except Exception as e:
             print("Exception occured in MAIN =>", str(e))
+            print("\n" + "=" * 80 + "\n")
 
         try:
             connection.close()
         except Exception as e:
             print("Mongo server disconnection FAILED =>", str(e))
-            print("\n" + "=" * 120 + "\n")
+            print("\n" + "=" * 80 + "\n")
 
     except Exception as e:
-        print("connection to Mongo server FAILED =>", str(e))
-        print("\n" + "=" * 120 + "\n")
+        print("Connection to Mongo server FAILED =>", str(e))
+        print("\n" + "=" * 80 + "\n")
 
-    print(emoji.emojize("End of MAIN :thumbs_up:"))
-    print("\n" + "=" * 120 + "\n")
+    elapsed_time = time.time() - start_time
+    execution_time = time.strftime("%M:%S", time.gmtime(elapsed_time))
+    print(emoji.emojize(f"End of MAIN after {execution_time} :thumbs_up:"))
+    print("\n" + "=" * 80 + "\n")

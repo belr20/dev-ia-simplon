@@ -57,6 +57,17 @@ class TradingGraph:
         self.render_range = render_range
         self.show_reward = show_reward
         self.show_indicators = show_indicators
+        # Other parameters
+        self.RSI = None
+        self.MACD = None
+        self.psar = None
+        self.bb_bbl = None
+        self.bb_bbh = None
+        self.bb_bbm = None
+        self.sma99 = None
+        self.sma25 = None
+        self.sma7 = None
+        self.ax4 = None
 
         # We are using the style ‘ggplot’
         plt.style.use('ggplot')

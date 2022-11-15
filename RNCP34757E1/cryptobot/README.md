@@ -1,7 +1,7 @@
 # [Crypto Trading Bot]()
-***by [BelR](https://github.com/belr20) with*** [![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-3913/)
+***by [BelR](https://github.com/belr20) with*** [![Python 3.10](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/downloads/release/python-3106/)
 
-![Bot](./assets/bot.png)
+![Bot](./assets/images/bot.png)
 
 **FOR EDUCATIONAL PURPOSE ONLY**, this is a Reinforcement Learning Trading Bot to beat the Bitcoin market through different Neural Network architectures.  
 Many thanks to [@pythonlessons](https://github.com/pythonlessons) for his [clear & powerfull tutorial](https://pylessons.com/RL-BTC-BOT-backbone) :pray:  
@@ -9,7 +9,7 @@ Many thanks to [@pythonlessons](https://github.com/pythonlessons) for his [clear
 ## Resources
 
 * [Technical Analysis Python Library | GitHub](https://github.com/bukosabino/ta#technical-analysis-library-in-python)
-* [RL Bitcoin Trading Bot | pythonlessons | GitHub](https://github.com/pythonlessons/RL-Bitcoin-trading-bot)
+* [RL Bitcoin Trading Bot | @pythonlessons | GitHub](https://github.com/pythonlessons/RL-Bitcoin-trading-bot)
 * [Generalized Advantage Estimate | Towards Data Science](https://towardsdatascience.com/generalized-advantage-estimate-maths-and-code-b5d5bd3ce737)
 * [RL PPO Proximal Policy Optimization Explained | Medium](https://jonathan-hui.medium.com/rl-proximal-policy-optimization-ppo-explained-77f014ec3f12)
 * [MongoDB & mongo-express using Docker containers | Tutorials 24x7](https://devops.tutorials24x7.com/blog/containerize-mongodb-and-mongo-express-using-docker-containers)
@@ -72,4 +72,4 @@ python main.py --visualize --show-reward --show-indicators lstm-agent
 
 * [ ] Run `tensorboard --logdir runs` for [TensorBoard](https://www.tensorflow.org/tensorboard/get_started) metrics exploration from [@pythonlessons](https://github.com/pythonlessons) HARD WORK trainings
   
-# Enjoy :wink:  
+## Enjoy :wink:  

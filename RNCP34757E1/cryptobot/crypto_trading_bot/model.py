@@ -12,12 +12,15 @@ from keras import backend as K
 from keras.models import Model
 from keras.layers import Input, Dense, Flatten, Conv1D, MaxPooling1D, LSTM
 
+# tf.data.experimental.enable_debug_mode()  # For debuging & development
+# tf.config.run_functions_eagerly(True)  # For debuging & development
 # tf.config.experimental_run_functions_eagerly(True)  # used for debuging and development
 tf.compat.v1.disable_eager_execution()  # usually using this for fastest performance
+tf.config.experimental.enable_mlir_graph_optimization()
 
 # GPU configuration
 gpus = tf.config.experimental.list_physical_devices('GPU')
-print("=" * 120)
+print("=" * 80)
 if len(gpus) > 0:
     print("\nGPU detected, configuring for highest performance\n")
     for device in gpus:
@@ -29,10 +32,7 @@ if len(gpus) > 0:
         pass
 else:
     print("\nNO GPU device")
-print("\n" + "=" * 120 + "\n")
-
-# tf.data.experimental.enable_debug_mode()  # For debuging & development
-# tf.config.run_functions_eagerly(True)  # For debuging & development
+print("\n" + "=" * 80 + "\n")
 
 
 class SharedModel:
