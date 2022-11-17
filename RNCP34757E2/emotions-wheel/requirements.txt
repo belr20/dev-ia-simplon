@@ -6,12 +6,12 @@ six==1.14.0
 
 dash==1.21.0
 Flask==1.1.2
-click==7.1.2
+click==8.0.0  # See PVE-2022-47833
 pytz==2020.4
 scipy==1.5.4
 tqdm==4.54.1
 
-numpy==1.22.0
+numpy==1.22.2  # See CVE-2021-41495
 distro==1.4.0
 Brotli==1.0.9
 ipaddr==2.2.0
