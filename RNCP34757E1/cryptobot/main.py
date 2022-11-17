@@ -60,6 +60,11 @@ lstm_agent = subparsers.add_parser(
 )
 args = parser.parse_args()
 
+# https://stackoverflow.com/a/47227886/15513730
+# Uncomment to hide tensorflow compilation warnings
+# import os
+# os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
 from data.etl_binance_to_db import (COLLECTION_NAME, CRYPTO, DB_NAME,
                                     binance_to_db, uri)
 from data.connect_to_db import db_connection
