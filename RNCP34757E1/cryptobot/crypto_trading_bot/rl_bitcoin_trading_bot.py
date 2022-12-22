@@ -13,8 +13,8 @@ from datetime import datetime
 
 # import tensorflow as tf
 from tensorboardX import SummaryWriter
-from keras.optimizers import Adam
-# from tensorflow.keras.optimizers import Adam
+# from keras.optimizers import Adam
+from tensorflow.keras.optimizers import Adam
 
 from crypto_trading_bot.model import SharedModel
 # from crypto_trading_bot.utils import TradingGraph, write_to_file

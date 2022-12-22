@@ -5,6 +5,7 @@
 # @Time:        18/05/2022 22:40
 import argparse
 from argparse import ArgumentParser
+
 # Argument parser configuration
 config_parser = ArgumentParser(epilog="Have FUN !", add_help=False)
 config_parser.add_argument(
@@ -64,7 +65,7 @@ args = parser.parse_args()
 # Uncomment to hide tensorflow compilation warnings
 # import os
 # os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
-
+from termcolor import colored, cprint
 from data.etl_binance_to_db import (COLLECTION_NAME, CRYPTO, DB_NAME,
                                     binance_to_db, uri)
 from data.connect_to_db import db_connection
@@ -80,12 +81,18 @@ from pymongo import MongoClient
 import emoji
 import time
 
-
 if __name__ == '__main__':
     start_time = time.time()
+    print_red = lambda x: cprint(x, "red")
+    print_green = lambda x: cprint(x, "green")
     print('MAIN is running through following namespace :\n')
     for key, value in vars(args).items():
-        print(f'\t{str.upper(key)}\n\t\t\t\t{value}')
+        if value == False:
+            print_red(f'\t{str.upper(key)}\n\t\t\t\t{value}')
+        elif value == True:
+            print_green(f'\t{str.upper(key)}\n\t\t\t\t{value}')
+        else:
+            print(f'\t{str.upper(key)}\n\t\t\t\t{value}')
 
     print("\n" + "=" * 80 + "\n")
 

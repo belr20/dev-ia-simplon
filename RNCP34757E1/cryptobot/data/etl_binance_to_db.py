@@ -127,7 +127,7 @@ async def save_csv_to_db(mongo_client, path, csv_file, date_format, collection_n
     # Data preprocessing
     dataframe = pd.read_csv(f"{path}{csv_file}")
     dataframe = dataframe.dropna(thresh=2)
-    dataframe = dataframe.drop(['unix', 'symbol', 'Volume USDT', 'tradecount'], axis=1)
+    dataframe = dataframe.drop(['Unix', 'Symbol', 'Volume USDT', 'tradecount'], axis=1)
     dataframe.columns = ['Date', 'Open', 'High', 'Low', 'Close', 'Volume']
     dataframe['Date'] = pd.to_datetime(dataframe['Date'], format=date_format, errors='coerce')
     dataframe['Date'] = dataframe['Date'].dt.strftime(date_format)
