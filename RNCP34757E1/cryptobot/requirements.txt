@@ -5,6 +5,7 @@ emoji
 numpy
 pandas
 pymongo
+termcolor
 mplfinance
 matplotlib
 tensorboardx
