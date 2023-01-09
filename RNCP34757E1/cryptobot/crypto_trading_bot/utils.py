@@ -50,7 +50,8 @@ class TradingGraph:
     date, open, high, low, close, volume, net_worth, trades
     Call render every step
     """
-    def __init__(self, render_range, show_reward=False, show_indicators=False):
+    # def __init__(self, render_range, show_reward=False, show_indicators=False):
+    def __init__(self, render_range, show_reward=False, show_indicators=['rsi', 'macd', 'psar', 'bb', 'sma']):
         self.volume = deque(maxlen=render_range)
         self.net_worth = deque(maxlen=render_range)
         self.render_data = deque(maxlen=render_range)
@@ -139,24 +140,29 @@ class TradingGraph:
         self.RSI.append(df["RSI"])
 
         # Add Simple Moving Average
-        self.ax1.plot(date_render_range, self.sma7, '-')
-        self.ax1.plot(date_render_range, self.sma25, '-')
-        self.ax1.plot(date_render_range, self.sma99, '-')
+        if 'sma' in self.show_indicators:
+            self.ax1.plot(date_render_range, self.sma7, '-')
+            self.ax1.plot(date_render_range, self.sma25, '-')
+            self.ax1.plot(date_render_range, self.sma99, '-')
 
         # Add Bollinger Bands
-        self.ax1.plot(date_render_range, self.bb_bbm, '-')
-        self.ax1.plot(date_render_range, self.bb_bbh, '-')
-        self.ax1.plot(date_render_range, self.bb_bbl, '-')
+        if 'bb' in self.show_indicators:
+            self.ax1.plot(date_render_range, self.bb_bbm, '-')
+            self.ax1.plot(date_render_range, self.bb_bbh, '-')
+            self.ax1.plot(date_render_range, self.bb_bbl, '-')
 
         # Add Parabolic Stop and Reverse
-        self.ax1.plot(date_render_range, self.psar, '.')
+        if 'psar' in self.show_indicators:
+            self.ax1.plot(date_render_range, self.psar, '.')
 
         self.ax4.clear()
         # Add Moving Average Convergence Divergence
-        self.ax4.plot(date_render_range, self.MACD, 'r-')
+        if 'macd' in self.show_indicators:
+            self.ax4.plot(date_render_range, self.MACD, 'r-')
 
         # Add Relative Strength Index
-        self.ax4.plot(date_render_range, self.RSI, 'g-')
+        if 'rsi' in self.show_indicators:
+            self.ax4.plot(date_render_range, self.RSI, 'g-')
 
     # def render(self, date, open, high, low, close, volume, net_worth, trades):
     def render(self, df, net_worth, trades):

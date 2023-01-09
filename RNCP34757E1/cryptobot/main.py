@@ -15,8 +15,16 @@ config_parser.add_argument(
 )
 config_parser.add_argument(
     "--show-indicators",
-    action="store_true",
-    help='Render technical indicators for analysis'
+    nargs='*',
+    default=False,
+    choices=['rsi', 'macd', 'psar', 'bb', 'sma'],
+    # action="store_true",
+    help='''Render technical indicators for analysis as {Relative \
+    Strength Index, \
+    Moving Average Convergence Divergence, \
+    Parabolic Stop and Reverse, \
+    Bollinger Bands, \
+    Simple Moving Average}'''
 )
 config_parser.add_argument(
     "--show-reward",
@@ -89,6 +97,8 @@ if __name__ == '__main__':
     for key, value in vars(args).items():
         if value == False:
             print_red(f'\t{str.upper(key)}\n\t\t\t\t{value}')
+        elif value in ['rsi', 'macd', 'psar', 'bb', 'sma']:
+            print_green(f'\t{str.upper(key)}\n\t\t\t\t{value}')
         elif value == True:
             print_green(f'\t{str.upper(key)}\n\t\t\t\t{value}')
         else:
