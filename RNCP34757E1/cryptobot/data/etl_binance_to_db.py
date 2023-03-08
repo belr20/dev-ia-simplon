@@ -103,9 +103,13 @@ async def save_url_to_csv(crypto, path, file_name):
     :return:
     """
     url = f"https://www.cryptodatadownload.com/cdd/Binance_{crypto}_1h.csv"
+
+    # Avoid error 403 forbidden https://stackoverflow.com/a/68816828/15513730
+    storage_options = {'User-Agent': 'Mozilla/5.0'}
+
     print("Download from URL\t\t", url)
     print("\n" + "=" * 80 + "\n")
-    df = pd.read_csv(url, header=1)
+    df = pd.read_csv(url, header=1, storage_options=storage_options)
     final_path = os.path.join(path, file_name)
     csv_file = df.to_csv(final_path, index=False)
     return csv_file
